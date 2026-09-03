@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deployed with Ansible</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 50px 60px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+  }
+  .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .server-info {
+    margin-top: 25px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🚀</div>
+    <h1>Server Deployed Successfully</h1>
+    <p>This page was configured and deployed automatically using Ansible on an AWS EC2 instance running Nginx.</p>
+    <span class="badge">Powered by Ansible</span>
+    <div class="server-info">
+      If you can see this page, your playbook worked correctly.
+    </div>
+  </div>
+</body>
+</html>

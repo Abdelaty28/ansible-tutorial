@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: update apt cache
+      apt:
+        update_cache: yes
+
+    - name: install nginx server
+      apt:
+        name: nginx
+        state: present
+
+    - name: copy index.html to web server directory
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'   
+
+
