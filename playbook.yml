@@ -5,18 +5,37 @@
     - name: update apt cache
       apt:
         update_cache: yes
+      when: ansible_distribution == "Ubuntu"  
 
-    - name: install nginx server
+    - name: install apache server
       apt:
-        name: nginx
+        name: apache2
         state: present
+      when: ansible_distribution == "Ubuntu"
 
-    - name: copy index.html to web server directory
-      copy:
-        src: index.html
-        dest: /var/www/html/index.html
-        owner: www-data
-        group: www-data
-        mode: '0644'   
+    - name: install php on server 
+      apt:
+        name: libapache2-mod-php
+        state: present
+      when: ansible_distribution == "Ubuntu"
+
+    - name: update dnf cache
+      dnf:
+        update_cache: yes
+      when: ansible_distribution == "RHEL"  
+
+    - name: install apache server
+      dnf:
+        name: httpd
+        state: present
+      when: ansible_distribution == "RHEL"
+
+    - name: install php on server 
+      dnf:
+        name: php
+        state: present
+      when: ansible_distribution == "RHEL"    
+
+    
 
 
