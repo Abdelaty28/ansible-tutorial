@@ -1,40 +1,19 @@
 ---
 - hosts: all
   become: yes
-  tasks:
-    - name: update apt cache
-      apt:
+  tasks:  
+    - name: install apache php server
+      package:
+        name:
+        - "{{ apache_package }}"
+        - "{{php_package}}"
+        state: present
         update_cache: yes
-      when: ansible_distribution == "Ubuntu"  
+      
 
-    - name: install apache server
-      apt:
-        name: apache2
-        state: present
-      when: ansible_distribution == "Ubuntu"
+    
 
-    - name: install php on server 
-      apt:
-        name: libapache2-mod-php
-        state: present
-      when: ansible_distribution == "Ubuntu"
-
-    - name: update dnf cache
-      dnf:
-        update_cache: yes
-      when: ansible_distribution == "RHEL"  
-
-    - name: install apache server
-      dnf:
-        name: httpd
-        state: present
-      when: ansible_distribution == "RHEL"
-
-    - name: install php on server 
-      dnf:
-        name: php
-        state: present
-      when: ansible_distribution == "RHEL"    
+     
 
     
 
