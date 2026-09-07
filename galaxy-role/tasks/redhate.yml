@@ -1,0 +1,14 @@
+- name: install apache on (RedHat)
+  tags: apache , httpd , redhate
+  dnf:
+    name: httpd
+    state: latest
+  when: ansible_distribution == "RedHat"  
+
+- name: install apache on (RedHat)
+  tags: svc , httpd , redhate
+  service:
+    name: httpd
+    state: started
+    enabled: yes  
+  when: ansible_distribution == "RedHat" 
