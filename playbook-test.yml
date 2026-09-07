@@ -1,44 +1,15 @@
 ---
 - hosts: all
   become: yes
-  tasks:
-    - name: update cache (ubuntu)
-      tags: always
-      apt:
-        update_cache: yes
-      when: ansible_distribution == "Ubuntu"
+  roles:
+    - galaxy-role
+    
 
-- hosts: all
-  become: yes
-  tasks:
-    - name: update cache (RedHat)
-      tags: always
-      dnf:
-        update_cache: yes
-      when: ansible_distribution == "ٌRedHat"
 
-- hosts: web-ubuntu
-  become: yes
-  tasks:
-    - name: install apache on (ubuntu)
-      tags: apache , apache2 , ubuntu
-      apt:
-        name: apache2
-        state: latest
 
-- hosts: web-rhel
-  become: yes
-  tasks:          
-    - name: install apache on (RedHat)
-      tags: apache , httpd , redhate
-      dnf:
-        name: httpd
-        state: latest
-    - name: install apache on (RedHat)
-      tags: svc , httpd , redhate
-      service:
-        name: httpd
-        state: started
-        enabled: yes    
+
+    
+
+
 
 
